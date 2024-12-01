@@ -1,0 +1,59 @@
+cabal-version:      3.4
+name:               Aoc2024
+version:            0.1.0.0
+-- synopsis:
+-- description:
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Fabian Neuschmidt
+maintainer:         fabian@neuschmidt.de
+-- copyright:
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+-- extra-source-files:
+
+common warnings
+    ghc-options: -Wall -O2
+
+common extensions
+  default-extensions: OverloadedStrings
+                    , RecordWildCards
+                    , OverloadedRecordDot
+                    , DuplicateRecordFields
+                    , NoFieldSelectors
+
+library
+    import:           warnings
+                    , extensions
+    exposed-modules:  DayTypes
+                    , Day01
+    -- other-modules:
+    -- other-extensions:
+    build-depends:    base,
+                      trifecta,
+                      bytestring,
+                      base16-bytestring,
+                      cryptohash-md5,
+                      containers,
+                      aeson,
+                      lens,
+                      lens-aeson,
+                      text,
+                      scientific,
+                      vector
+
+    hs-source-dirs:   src
+    default-language: GHC2021
+
+executable Aoc2024
+    import:           warnings
+                    , extensions
+    main-is:          Main.hs
+    -- other-modules:
+    -- other-extensions:
+    build-depends:
+        base,
+        Aoc2024
+
+    hs-source-dirs:   app
+    default-language: GHC2021
