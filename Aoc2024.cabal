@@ -27,6 +27,8 @@ library
                     , extensions
     exposed-modules:  DayTypes
                     , Day01
+                    , Day02
+                    , Day03
     -- other-modules:
     -- other-extensions:
     build-depends:    base,
