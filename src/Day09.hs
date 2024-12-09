@@ -93,5 +93,3 @@ part2 :: String -> String
 part2 input = show . checksum . expand3 . moveAll . Seq.fromList $ files
   where
     files = expand2 (takeWhile (/= '\n') input)
-
--- part1 input = show $ checksum . compact . Seq.fromList $ expand (takeWhile (/= '\n') input)
