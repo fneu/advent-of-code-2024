@@ -1,5 +1,6 @@
 module Main where
 
+import Control.Exception (evaluate)
 import Day01 (day01)
 import Day02 (day02)
 import Day03 (day03)
@@ -12,7 +13,9 @@ import Day09 (day09)
 import Day10 (day10)
 import Day11 (day11)
 import DayTypes (Day (..))
+import System.CPUTime (getCPUTime)
 import System.Environment (getArgs)
+import Text.Printf (printf)
 
 main :: IO ()
 main = do
@@ -33,6 +36,18 @@ main = do
       putStrLn "Usage: program <day> <part> input/<file>"
       putStrLn "This day might not be implemented"
   where
-    runDay day part file = readFile ("input/" ++ file) >>= putStrLn . choose part day
+    runDay day part file = do
+      input <- readFile ("input/" ++ file)
+      start <- getCPUTime
+      result <- evaluate $ forceResult $ choose part day input
+      end <- getCPUTime
+      putStrLn result
+      let diff = fromIntegral (end - start) / (10 ^ (12 :: Int)) :: Double
+      printf "Execution time: %0.6f seconds\n" diff
+
     choose "2" = (.part2)
     choose _ = (.part1)
+
+    -- Force evaluation of the result to ensure timing is accurate
+    forceResult :: String -> String
+    forceResult s = length s `seq` s
