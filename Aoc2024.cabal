@@ -36,6 +36,7 @@ library
                     , Day08
                     , Day09
                     , Day10
+                    , Day11
     -- other-modules:
     -- other-extensions:
     build-depends:    base,
@@ -49,7 +50,8 @@ library
                       lens-aeson,
                       text,
                       scientific,
-                      vector
+                      vector,
+                      memoize
 
     hs-source-dirs:   src
     default-language: GHC2021
