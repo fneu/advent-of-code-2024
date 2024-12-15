@@ -38,6 +38,7 @@ library
                     , Day10
                     , Day11
                     , Day12
+                    , Day13
     -- other-modules:
     -- other-extensions:
     build-depends:    base,
