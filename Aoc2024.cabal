@@ -42,6 +42,7 @@ library
                     , Day14
                     , Day15
                     , Day16
+                    , Day17
     -- other-modules:
     -- other-extensions:
     build-depends:    base,
