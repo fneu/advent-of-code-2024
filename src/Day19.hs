@@ -8,9 +8,6 @@ import DayTypes (Day (..))
 day19 :: Day
 day19 = Day part1 part2
 
-parseTowels :: String -> [String]
-parseTowels = map (filter (/= ',')) . words
-
 tryTowel :: String -> String -> Maybe String
 tryTowel pattern towel =
   if towel `isPrefixOf` pattern
