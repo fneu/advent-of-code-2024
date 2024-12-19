@@ -19,6 +19,7 @@ import Day15 (day15)
 import Day16 (day16)
 import Day17 (day17)
 import Day18 (day18)
+import Day19 (day19)
 import DayTypes (Day (..))
 import System.CPUTime (getCPUTime)
 import System.Environment (getArgs)
@@ -46,6 +47,7 @@ main = do
     ["16", part, file] -> runDay day16 part file
     ["17", part, file] -> runDay day17 part file
     ["18", part, file] -> runDay day18 part file
+    ["19", part, file] -> runDay day19 part file
     _ -> do
       putStrLn "Usage: program <day> <part> input/<file>"
       putStrLn "This day might not be implemented"
