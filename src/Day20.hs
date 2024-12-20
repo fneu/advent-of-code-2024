@@ -35,13 +35,14 @@ path input = V.fromList $ makePath start spaces
         others' = filter (\p -> distance point p > 1) others
 
 cheatNM :: Int -> Int -> V.Vector Point -> Int
-cheatNM dist cheatLength path' =
+cheatNM advantage cheatLength path' =
   length
     [ (i1, i2)
     | i1 <- [0 .. V.length path' - 1],
-      i2 <- [i1 + dist .. V.length path' - 1],
-      abs (i1 - i2) >= dist + distance (path' V.! i1) (path' V.! i2),
-      distance (path' V.! i1) (path' V.! i2) <= cheatLength
+      i2 <- [i1 + advantage .. V.length path' - 1],
+      let dist = distance (path' V.! i1) (path' V.! i2),
+      dist <= cheatLength,
+      abs (i1 - i2) >= advantage + dist
     ]
 
 part1 :: String -> String
